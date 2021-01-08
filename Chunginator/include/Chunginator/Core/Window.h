@@ -29,6 +29,9 @@ namespace CGR
 		virtual void SetWindowed() = 0;
 		virtual void SetWindowedBorderless() = 0;
 
+		virtual uint32_t GetWidth() = 0;
+		virtual uint32_t GetHeight() = 0;
+
 		virtual bool IsRunning() = 0;
 		virtual void* GetNativeWindow() = 0;
 

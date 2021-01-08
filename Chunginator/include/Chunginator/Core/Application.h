@@ -3,12 +3,14 @@
 #include "Chunginator.h"
 #include "Core/Window.h"
 #include "Core/Input.h"
+#include "Gui/GuiLayer.h"
 
 // Temporary //
 #include "Renderer/VertexArray.h"
 #include "Renderer/Buffer.h"
 #include "Renderer/Shader.h"
 #include "Renderer/Texture.h"
+#include "Gui/GuiWidgets.h"
 
 namespace CGR
 {
@@ -26,5 +28,6 @@ namespace CGR
 	private:
 		static Application* s_Instance;
 		Window* m_Window;
+		GuiLayer* m_GuiLayer;
 	};
 }

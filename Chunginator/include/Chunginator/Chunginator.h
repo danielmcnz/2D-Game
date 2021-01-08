@@ -3,6 +3,7 @@
 //--- Chunginator Constants ----//
 
 #define CGR_OPENGL
+#define GUI_IMGUI
 
 //---- Graphics API Includes ----//
 
@@ -10,6 +11,12 @@
 	#ifdef CGR_OPENGL
 		#include <glad/glad.h>
 		#include <GLFW/glfw3.h>
+
+		#ifdef GUI_IMGUI
+			#include <IMGUI/imgui.h>
+			#include <IMGUI/imgui_impl_opengl3.h>
+			#include <IMGUI/imgui_impl_glfw.h>
+		#endif
 	#else
 		#error "graphics api not supported"
 	#endif

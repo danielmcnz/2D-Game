@@ -8,6 +8,7 @@ namespace CGR
 	{
 		s_Instance = this;
 		m_Window = Window::Create("Game", 1350, 750);
+		m_GuiLayer = GuiLayer::Create();
 	}
 
 	Application::~Application()
@@ -15,6 +16,8 @@ namespace CGR
 
 	void Application::Run()
 	{
+		m_GuiLayer->Init();
+
 		float textureIndex = 1.0f;
 		float vertices[] = {
 			// position				// color					// texcoords	// texindex
@@ -31,10 +34,6 @@ namespace CGR
 
 		Shader* shader = Shader::Create("assets/shaders/vert.glsl", "assets/shaders/frag.glsl");
 		shader->Bind();
-
-		shader->SetUniformMat4fv("u_Projection", glm::mat4(1.0f));
-		shader->SetUniformMat4fv("u_View", glm::mat4(1.0f));
-		shader->SetUniformMat4fv("u_Model", glm::mat4(1.0f));
 
 		VertexArray* va = VertexArray::Create();
 
@@ -71,9 +70,10 @@ namespace CGR
 
 		while (m_Window->IsRunning())
 		{
-			m_Window->SetClearColor(Vec4f( 0.0f, 0.0f, 0.0f, 1.0f ));
+			m_Window->SetClearColor(Vec4f( 0.5f, 0.5f, 0.5f, 1.0f ));
 			m_Window->Clear();
-			
+
+			m_GuiLayer->Begin();
 
 			if (Input::KeyPressed(KeyCode::Escape))
 			{
@@ -93,9 +93,20 @@ namespace CGR
 				m_Window->SetWindowedBorderless();
 			}
 
+			glm::mat4 projection = glm::ortho(0.0f, (float)m_Window->GetWidth(), 0.0f, (float)m_Window->GetHeight(), 0.1f, 100.0f);
+			projection = glm::mat4(1.0f);
+			
+			shader->SetUniformMat4fv("u_Projection", projection);
+			shader->SetUniformMat4fv("u_View", glm::mat4(1.0f));
+			shader->SetUniformMat4fv("u_Model", glm::mat4(1.0f));
+
 			glDrawElements(GL_TRIANGLES, va->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, 0);
+
+			m_GuiLayer->End();
 
 			m_Window->OnUpdate();
 		}
+
+		m_GuiLayer->Shutdown();
 	}
 }
