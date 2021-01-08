@@ -19,7 +19,8 @@ namespace CGR
 		void SetVsync(bool enabled) override;
 		void SetResizable(bool enabled) override;
 		void SetFullScreen() override;
-		void SetBorderless() override;
+		void SetWindowed() override;
+		void SetWindowedBorderless() override;
 
 		bool IsRunning() override;
 		void* GetNativeWindow() override { return m_Window; }
@@ -31,6 +32,9 @@ namespace CGR
 		std::string m_Title;
 		uint32_t m_Width;
 		uint32_t m_Height;
+		Vec2i m_WindowPos;
+
+		WindowState m_State;
 
 		bool m_Vsync;
 	};

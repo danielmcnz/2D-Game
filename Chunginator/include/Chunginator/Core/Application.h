@@ -4,6 +4,11 @@
 #include "Core/Window.h"
 #include "Core/Input.h"
 
+// Temporary //
+#include "Renderer/VertexArray.h"
+#include "Renderer/Buffer.h"
+#include "Renderer/Shader.h"
+
 namespace CGR
 {
 	class Application
