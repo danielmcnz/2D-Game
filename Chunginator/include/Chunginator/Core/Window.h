@@ -5,6 +5,13 @@
 
 namespace CGR
 {
+	enum class WindowState
+	{
+		Windowed,
+		Fullscreen,
+		WindowedBorderless
+	};
+
 	class Window
 	{
 	public:
@@ -19,7 +26,8 @@ namespace CGR
 		virtual void SetVsync(bool enabled) = 0;
 		virtual void SetResizable(bool enabled) = 0;
 		virtual void SetFullScreen() = 0;
-		virtual void SetBorderless() = 0;
+		virtual void SetWindowed() = 0;
+		virtual void SetWindowedBorderless() = 0;
 
 		virtual bool IsRunning() = 0;
 		virtual void* GetNativeWindow() = 0;

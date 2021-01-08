@@ -120,7 +120,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>include\platform;include\Chunginator;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>include\platform;include\Chunginator;vendor\STB_IMAGE\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -137,7 +137,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>include\platform;include\Chunginator;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>include\platform;include\Chunginator;vendor\STB_IMAGE\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -164,8 +164,10 @@
     <ClInclude Include="include\Chunginator\Renderer\Renderer.h" />
     <ClInclude Include="include\Chunginator\Renderer\Shader.h" />
     <ClInclude Include="include\Chunginator\Renderer\VertexArray.h" />
+    <ClInclude Include="include\platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="include\platform\OpenGL\OpenGLRenderer.h" />
     <ClInclude Include="include\platform\OpenGL\OpenGLShader.h" />
+    <ClInclude Include="include\platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="include\platform\OpenGL\OpenGLWindow.h" />
   </ItemGroup>
   <ItemGroup>
@@ -176,9 +178,11 @@
     <ClCompile Include="src\Chunginator\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Chunginator\Renderer\Shader.cpp" />
     <ClCompile Include="src\Chunginator\Renderer\VertexArray.cpp" />
+    <ClCompile Include="src\platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\platform\OpenGL\OpenGLInput.cpp" />
     <ClCompile Include="src\platform\OpenGL\OpenGLRenderer.cpp" />
     <ClCompile Include="src\platform\OpenGL\OpenGLShader.cpp" />
+    <ClCompile Include="src\platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\platform\OpenGL\OpenGLWindow.cpp" />
     <ClCompile Include="vendor\GLAD\src\glad.c" />
   </ItemGroup>

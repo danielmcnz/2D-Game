@@ -4,7 +4,7 @@ namespace CGR
 {
 	OpenGLWindow::OpenGLWindow(std::string title, uint32_t width, uint32_t height)
 		:
-		m_Title(title), m_Width(width), m_Height(height), m_Vsync(false), m_Window(nullptr)
+		m_Title(title), m_Width(width), m_Height(height), m_Vsync(false), m_Window(nullptr), m_State(WindowState::Windowed)
 	{
 		if (!glfwInit())
 		{
@@ -12,7 +12,7 @@ namespace CGR
 			exit(1);
 		}
 
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
@@ -34,6 +34,8 @@ namespace CGR
 			glfwTerminate();
 			exit(1);
 		}
+
+		glfwGetWindowPos(m_Window, &m_WindowPos.x, &m_WindowPos.y);
 
 		m_Renderer = Renderer::Create();
 	}
@@ -67,6 +69,14 @@ namespace CGR
 
 	bool OpenGLWindow::IsRunning()
 	{
+		if (m_State == WindowState::Windowed)
+		{
+			int width, height;
+			glfwGetWindowSize(m_Window, &width, &height);
+			glfwGetWindowPos(m_Window, &m_WindowPos.x, &m_WindowPos.y);
+			m_Width = width;
+			m_Height = height;
+		}
 		return !glfwWindowShouldClose(m_Window);
 	}
 
@@ -106,13 +116,34 @@ namespace CGR
 
 	void OpenGLWindow::SetFullScreen()
 	{
-		GLFWmonitor* primaryMonitor = glfwGetPrimaryMonitor();
-		const GLFWvidmode* mode = glfwGetVideoMode(primaryMonitor);
-		glfwSetWindowMonitor(m_Window, primaryMonitor, 0, 0, mode->width, mode->height, mode->refreshRate);
+		if (m_State != WindowState::Fullscreen)
+		{
+			m_State = WindowState::Fullscreen;
+			GLFWmonitor* primaryMonitor = glfwGetPrimaryMonitor();
+			const GLFWvidmode* mode = glfwGetVideoMode(primaryMonitor);
+			glfwSetWindowMonitor(m_Window, primaryMonitor, 0, 0, mode->width, mode->height, mode->refreshRate);
+		}
 	}
 
-	void OpenGLWindow::SetBorderless()
+	void OpenGLWindow::SetWindowed()
 	{
+		if (m_State != WindowState::Windowed)
+		{
+			m_State = WindowState::Windowed;
+			GLFWmonitor* primaryMonitor = glfwGetPrimaryMonitor();
+			const GLFWvidmode* mode = glfwGetVideoMode(primaryMonitor);
+			glfwSetWindowMonitor(m_Window, nullptr, m_WindowPos.x, m_WindowPos.y, m_Width, m_Height, mode->refreshRate);
+		}
+	}
 
+	void OpenGLWindow::SetWindowedBorderless()
+	{
+		if (m_State != WindowState::WindowedBorderless)
+		{
+			m_State = WindowState::WindowedBorderless;
+			GLFWmonitor* primaryMonitor = glfwGetPrimaryMonitor();
+			const GLFWvidmode* mode = glfwGetVideoMode(primaryMonitor);
+			glfwSetWindowMonitor(m_Window, nullptr, 0, 0, mode->width, mode->height, mode->refreshRate);
+		}
 	}
 }

@@ -61,6 +61,12 @@
     <ClInclude Include="include\Chunginator\Renderer\Shader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\platform\OpenGL\OpenGLBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\platform\OpenGL\OpenGLVertexArray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Chunginator\Core\Application.cpp">
@@ -97,6 +103,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Chunginator\Renderer\Shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\platform\OpenGL\OpenGLBuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\platform\OpenGL\OpenGLVertexArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
