@@ -69,14 +69,16 @@ namespace CGR
 
 	bool OpenGLWindow::IsRunning()
 	{
+		int width, height;
+		glfwGetWindowSize(m_Window, &width, &height);
 		if (m_State == WindowState::Windowed)
 		{
-			int width, height;
-			glfwGetWindowSize(m_Window, &width, &height);
 			glfwGetWindowPos(m_Window, &m_WindowPos.x, &m_WindowPos.y);
 			m_Width = width;
 			m_Height = height;
 		}
+		glViewport(0, 0, width, height);
+
 		return !glfwWindowShouldClose(m_Window);
 	}
 
