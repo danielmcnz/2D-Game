@@ -41,7 +41,7 @@ namespace CGR
 		uint32_t loc = glGetUniformLocation(m_ProgramID, location.c_str());
 		if (loc == -1)
 		{
-			std::cout << "Uniform does not exist" << std::endl;
+			std::cout << "Uniform " + location + " does not exist" << std::endl;
 		}
 
 		return loc;

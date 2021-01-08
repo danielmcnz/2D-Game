@@ -8,6 +8,7 @@
 #include "Renderer/VertexArray.h"
 #include "Renderer/Buffer.h"
 #include "Renderer/Shader.h"
+#include "Renderer/Texture.h"
 
 namespace CGR
 {

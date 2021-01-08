@@ -163,10 +163,12 @@
     <ClInclude Include="include\Chunginator\Renderer\Buffer.h" />
     <ClInclude Include="include\Chunginator\Renderer\Renderer.h" />
     <ClInclude Include="include\Chunginator\Renderer\Shader.h" />
+    <ClInclude Include="include\Chunginator\Renderer\Texture.h" />
     <ClInclude Include="include\Chunginator\Renderer\VertexArray.h" />
     <ClInclude Include="include\platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="include\platform\OpenGL\OpenGLRenderer.h" />
     <ClInclude Include="include\platform\OpenGL\OpenGLShader.h" />
+    <ClInclude Include="include\platform\OpenGL\OpenGLTexture.h" />
     <ClInclude Include="include\platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="include\platform\OpenGL\OpenGLWindow.h" />
   </ItemGroup>
@@ -177,14 +179,17 @@
     <ClCompile Include="src\Chunginator\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Chunginator\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Chunginator\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Chunginator\Renderer\Texture.cpp" />
     <ClCompile Include="src\Chunginator\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\platform\OpenGL\OpenGLInput.cpp" />
     <ClCompile Include="src\platform\OpenGL\OpenGLRenderer.cpp" />
     <ClCompile Include="src\platform\OpenGL\OpenGLShader.cpp" />
+    <ClCompile Include="src\platform\OpenGL\OpenGLTexture.cpp" />
     <ClCompile Include="src\platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\platform\OpenGL\OpenGLWindow.cpp" />
     <ClCompile Include="vendor\GLAD\src\glad.c" />
+    <ClCompile Include="vendor\STB_IMAGE\include\STB_IMAGE\stb_image.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

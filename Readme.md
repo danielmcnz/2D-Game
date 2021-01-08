@@ -1,6 +1,6 @@
 # Chunginator Engine
 
-2D Game Engine using OpenGL.
+2D Game Engine using OpenGL currently in the early stages of development.
 
 Only supported for Windows.
 
