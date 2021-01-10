@@ -31,6 +31,8 @@ namespace CGR
 			r = copy.r;
 			y = copy.y;
 			g = copy.g;
+
+			return *this;
 		}
 
 		Vec2& operator+=(const Vec2& copy)
@@ -39,6 +41,8 @@ namespace CGR
 			r += copy.r;
 			y += copy.y;
 			g += copy.g;
+
+			return *this;
 		}
 
 		Vec2& operator-=(const Vec2& copy)
@@ -47,6 +51,8 @@ namespace CGR
 			r -= copy.r;
 			y -= copy.y;
 			g -= copy.g;
+
+			return *this;
 		}
 
 		Vec2& operator*=(const Vec2& copy)
@@ -55,6 +61,8 @@ namespace CGR
 			r *= copy.r;
 			y *= copy.y;
 			g *= copy.g;
+
+			return *this;
 		}
 
 		Vec2& operator/=(const Vec2& copy)
@@ -63,6 +71,8 @@ namespace CGR
 			r /= copy.r;
 			y /= copy.y;
 			g /= copy.g;
+
+			return *this;
 		}
 
 		float Magnitude()

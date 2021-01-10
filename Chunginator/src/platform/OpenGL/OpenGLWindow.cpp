@@ -4,7 +4,8 @@ namespace CGR
 {
 	OpenGLWindow::OpenGLWindow(std::string title, uint32_t width, uint32_t height)
 		:
-		m_Title(title), m_Width(width), m_Height(height), m_Vsync(false), m_Window(nullptr), m_State(WindowState::Windowed)
+		m_Title(title), m_WindowSize(width, height), m_WindowedWindowSize(width, height), m_Vsync(false), m_Window(nullptr), 
+		m_State(WindowState::Windowed)
 	{
 		if (!glfwInit())
 		{
@@ -16,7 +17,7 @@ namespace CGR
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-		m_Window = glfwCreateWindow(m_Width, m_Height, m_Title.c_str(), 0, 0);
+		m_Window = glfwCreateWindow(m_WindowSize.x, m_WindowSize.y, m_Title.c_str(), 0, 0);
 
 		if (!m_Window)
 		{
@@ -73,11 +74,14 @@ namespace CGR
 		glfwGetWindowSize(m_Window, &width, &height);
 		if (m_State == WindowState::Windowed)
 		{
-			glfwGetWindowPos(m_Window, &m_WindowPos.x, &m_WindowPos.y);
-			m_Width = width;
-			m_Height = height;
+			//glfwGetWindowPos(m_Window, &m_WindowPos.x, &m_WindowPos.y);
+			m_WindowedWindowSize = Vec2i(width, height);
+			m_WindowSize = m_WindowedWindowSize;
 		}
-		glViewport(0, 0, width, height);
+		else
+		{
+			m_WindowSize = Vec2i(width, height);
+		}
 
 		return !glfwWindowShouldClose(m_Window);
 	}
@@ -134,7 +138,7 @@ namespace CGR
 			m_State = WindowState::Windowed;
 			GLFWmonitor* primaryMonitor = glfwGetPrimaryMonitor();
 			const GLFWvidmode* mode = glfwGetVideoMode(primaryMonitor);
-			glfwSetWindowMonitor(m_Window, nullptr, m_WindowPos.x, m_WindowPos.y, m_Width, m_Height, mode->refreshRate);
+			glfwSetWindowMonitor(m_Window, nullptr, m_WindowPos.x, m_WindowPos.y, m_WindowSize.x, m_WindowSize.y, mode->refreshRate);
 		}
 	}
 

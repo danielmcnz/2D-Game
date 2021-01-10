@@ -118,6 +118,9 @@
     <ClInclude Include="include\Chunginator\Renderer\Renderer2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Chunginator\Core\Event.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Chunginator\Core\Application.cpp">
@@ -199,6 +202,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="vendor\IMGUI\include\IMGUI\imgui_impl_opengl3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chunginator\Renderer\PerspectiveCamera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chunginator\Renderer\Renderer2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

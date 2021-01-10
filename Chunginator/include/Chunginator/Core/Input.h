@@ -50,9 +50,26 @@ namespace CGR
 		static const int Z			= GLFW_KEY_Z;
 	};
 
+	struct MouseButton
+	{
+		static const int LeftButton		= GLFW_MOUSE_BUTTON_LEFT;
+		static const int RightButton	= GLFW_MOUSE_BUTTON_RIGHT;
+		static const int MiddleButton	= GLFW_MOUSE_BUTTON_MIDDLE;
+		static const int LastButton		= GLFW_MOUSE_BUTTON_LAST;
+		static const int One			= GLFW_MOUSE_BUTTON_1;
+		static const int Two			= GLFW_MOUSE_BUTTON_2;
+		static const int Three			= GLFW_MOUSE_BUTTON_3;
+		static const int Four			= GLFW_MOUSE_BUTTON_4;
+		static const int Five			= GLFW_MOUSE_BUTTON_5;
+		static const int Six			= GLFW_MOUSE_BUTTON_6;
+		static const int Seven			= GLFW_MOUSE_BUTTON_7;
+		static const int Eight			= GLFW_MOUSE_BUTTON_8;
+	};
+
 	class Input
 	{
 	public:
 		static int KeyPressed(int keyCode);
+		static int MouseButtonPressed(int button);
 	};
 }
