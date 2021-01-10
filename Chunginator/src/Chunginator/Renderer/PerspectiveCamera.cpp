@@ -42,10 +42,10 @@ namespace CGR
 			m_CameraPos.z -= m_ZoomSpeed * deltaTime;
 		}
 
-		if (int mouseWheel = Input::GetMouseWheel())
+		/*if (int mouseWheel = Input::MouseButtonPressed())
 		{
 			std::cout << mouseWheel << std::endl;
-		}
+		}*/
 
 		m_View = glm::translate(glm::mat4(1.0f), glm::vec3(m_CameraPos.x, m_CameraPos.y, m_CameraPos.z));
 
