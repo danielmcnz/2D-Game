@@ -36,8 +36,6 @@ namespace CGR
 			g = copy.g;
 			z = copy.z;
 			b = copy.b;
-
-			return *this;
 		}
 
 		Vec3& operator+=(const Vec3& copy)
@@ -48,8 +46,6 @@ namespace CGR
 			g += copy.g;
 			z += copy.z;
 			b += copy.b;
-
-			return *this;
 		}
 
 		Vec3& operator-=(const Vec3& copy)
@@ -60,8 +56,6 @@ namespace CGR
 			g -= copy.g;
 			z -= copy.z;
 			b -= copy.b;
-
-			return *this;
 		}
 
 		Vec3& operator*=(const Vec3& copy)
@@ -72,8 +66,6 @@ namespace CGR
 			g *= copy.g;
 			z *= copy.z;
 			b *= copy.b;
-
-			return *this;
 		}
 
 		Vec3& operator/=(const Vec3& copy)
@@ -84,8 +76,6 @@ namespace CGR
 			g /= copy.g;
 			z /= copy.z;
 			b /= copy.b;
-
-			return *this;
 		}
 	};
 

@@ -6,12 +6,10 @@
 #include "Gui/GuiLayer.h"
 
 // Temporary //
-#include "Renderer/Renderer.h"
 #include "Renderer/VertexArray.h"
 #include "Renderer/Buffer.h"
 #include "Renderer/Shader.h"
 #include "Renderer/Texture.h"
-#include "Renderer/PerspectiveCamera.h"
 #include "Gui/GuiWidgets.h"
 
 namespace CGR
@@ -29,8 +27,6 @@ namespace CGR
 
 	private:
 		static Application* s_Instance;
-		Renderer* m_Renderer;
-		PerspectiveCamera* m_Pcamera;
 		Window* m_Window;
 		GuiLayer* m_GuiLayer;
 	};

@@ -22,8 +22,8 @@ namespace CGR
 		void SetWindowed() override;
 		void SetWindowedBorderless() override;
 
-		uint32_t GetWidth() override { return m_WindowSize.x; }
-		uint32_t GetHeight() override { return m_WindowSize.y; }
+		uint32_t GetWidth() override { return m_Height; }
+		uint32_t GetHeight() override { return m_Width; }
 
 		bool IsRunning() override;
 		void* GetNativeWindow() override { return m_Window; }
@@ -33,8 +33,8 @@ namespace CGR
 		Renderer* m_Renderer;
 
 		std::string m_Title;
-		Vec2i m_WindowSize;
-		Vec2i m_WindowedWindowSize;
+		uint32_t m_Width;
+		uint32_t m_Height;
 		Vec2i m_WindowPos;
 
 		WindowState m_State;
