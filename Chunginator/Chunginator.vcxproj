@@ -155,7 +155,6 @@
   <ItemGroup>
     <ClInclude Include="include\Chunginator\Chunginator.h" />
     <ClInclude Include="include\Chunginator\Core\Application.h" />
-    <ClInclude Include="include\Chunginator\Core\Event.h" />
     <ClInclude Include="include\Chunginator\Core\Input.h" />
     <ClInclude Include="include\Chunginator\Core\Layer.h" />
     <ClInclude Include="include\Chunginator\Core\Window.h" />

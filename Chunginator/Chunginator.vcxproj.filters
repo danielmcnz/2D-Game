@@ -118,9 +118,6 @@
     <ClInclude Include="include\Chunginator\Renderer\Renderer2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Chunginator\Core\Event.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Chunginator\Core\Application.cpp">
