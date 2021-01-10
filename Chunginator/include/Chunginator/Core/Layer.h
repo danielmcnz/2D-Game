@@ -12,7 +12,7 @@ namespace CGR
 
 		virtual void OnUpdate(float deltaTime) = 0;
 		virtual void OnGuiUpdate() = 0;
-		virtual void OnEvent() = 0;
+		//virtual void OnEvent() = 0;
 		virtual void OnRender() = 0;
 	};
 }
