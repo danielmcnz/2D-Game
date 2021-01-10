@@ -155,9 +155,7 @@
   <ItemGroup>
     <ClInclude Include="include\Chunginator\Chunginator.h" />
     <ClInclude Include="include\Chunginator\Core\Application.h" />
-    <ClInclude Include="include\Chunginator\Core\Event.h" />
     <ClInclude Include="include\Chunginator\Core\Input.h" />
-    <ClInclude Include="include\Chunginator\Core\Layer.h" />
     <ClInclude Include="include\Chunginator\Core\Window.h" />
     <ClInclude Include="include\Chunginator\Gui\GuiLayer.h" />
     <ClInclude Include="include\Chunginator\Gui\GuiWidgets.h" />
@@ -166,9 +164,7 @@
     <ClInclude Include="include\Chunginator\Math\Vec4.h" />
     <ClInclude Include="include\Chunginator\Renderer\Buffer.h" />
     <ClInclude Include="include\Chunginator\Renderer\OrthographicCamera.h" />
-    <ClInclude Include="include\Chunginator\Renderer\PerspectiveCamera.h" />
     <ClInclude Include="include\Chunginator\Renderer\Renderer.h" />
-    <ClInclude Include="include\Chunginator\Renderer\Renderer2D.h" />
     <ClInclude Include="include\Chunginator\Renderer\Shader.h" />
     <ClInclude Include="include\Chunginator\Renderer\Texture.h" />
     <ClInclude Include="include\Chunginator\Renderer\VertexArray.h" />
@@ -196,9 +192,7 @@
     <ClCompile Include="src\Chunginator\Gui\GuiWidgets.cpp" />
     <ClCompile Include="src\Chunginator\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Chunginator\Renderer\OrthographicCamera.cpp" />
-    <ClCompile Include="src\Chunginator\Renderer\PerspectiveCamera.cpp" />
     <ClCompile Include="src\Chunginator\Renderer\Renderer.cpp" />
-    <ClCompile Include="src\Chunginator\Renderer\Renderer2D.cpp" />
     <ClCompile Include="src\Chunginator\Renderer\Shader.cpp" />
     <ClCompile Include="src\Chunginator\Renderer\Texture.cpp" />
     <ClCompile Include="src\Chunginator\Renderer\VertexArray.cpp" />

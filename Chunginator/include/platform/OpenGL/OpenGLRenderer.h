@@ -10,10 +10,6 @@ namespace CGR
 		OpenGLRenderer();
 		~OpenGLRenderer() override;
 
-		void SetViewPort() override;
-
-		void DrawIndexed(VertexArray*& vertexArray) override;
-
 		void SwapBuffers() override;
 	};
 }

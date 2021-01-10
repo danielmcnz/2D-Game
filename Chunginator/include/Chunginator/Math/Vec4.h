@@ -41,8 +41,6 @@ namespace CGR
 			b = copy.b;
 			w = copy.w;
 			a = copy.a;
-
-			return *this;
 		}
 
 		Vec4& operator+=(const Vec4& copy)
@@ -55,8 +53,6 @@ namespace CGR
 			b += copy.b;
 			w += copy.w;
 			a += copy.a;
-
-			return *this;
 		}
 
 		Vec4& operator-=(const Vec4& copy)
@@ -69,8 +65,6 @@ namespace CGR
 			b -= copy.b;
 			w -= copy.w;
 			a -= copy.a;
-
-			return *this;
 		}
 
 		Vec4& operator*=(const Vec4& copy)
@@ -83,8 +77,6 @@ namespace CGR
 			b *= copy.b;
 			w *= copy.w;
 			a *= copy.a;
-
-			return *this;
 		}
 
 		Vec4& operator/=(const Vec4& copy)
@@ -97,8 +89,6 @@ namespace CGR
 			b /= copy.b;
 			w /= copy.w;
 			a /= copy.a;
-
-			return *this;
 		}
 	};
 
