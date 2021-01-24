@@ -4,6 +4,8 @@
 #include "Core/Window.h"
 #include "Core/Input.h"
 #include "Gui/GuiLayer.h"
+#include "Renderer/PerspectiveCamera.h"
+#include "Renderer/Renderer2D.h"
 
 // Temporary //
 #include "Renderer/Renderer.h"
@@ -11,7 +13,6 @@
 #include "Renderer/Buffer.h"
 #include "Renderer/Shader.h"
 #include "Renderer/Texture.h"
-#include "Renderer/PerspectiveCamera.h"
 #include "Gui/GuiWidgets.h"
 
 namespace CGR
@@ -30,7 +31,7 @@ namespace CGR
 	private:
 		static Application* s_Instance;
 		Renderer* m_Renderer;
-		PerspectiveCamera* m_Pcamera;
+		PerspectiveCamera m_Pcamera;
 		Window* m_Window;
 		GuiLayer* m_GuiLayer;
 	};

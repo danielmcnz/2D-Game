@@ -2,6 +2,15 @@
 
 namespace CGR
 {
+	bool GuiWidgets::Text(std::string text...)
+	{
+	#ifdef GUI_IMGUI
+		ImGui::Text(text.c_str());
+	#endif
+
+		return 0;
+	}
+
 	bool GuiWidgets::Button(std::string text, const Vec2f& size)
 	{
 	#ifdef GUI_IMGUI

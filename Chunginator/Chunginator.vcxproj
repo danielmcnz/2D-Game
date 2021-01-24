@@ -155,7 +155,7 @@
   <ItemGroup>
     <ClInclude Include="include\Chunginator\Chunginator.h" />
     <ClInclude Include="include\Chunginator\Core\Application.h" />
-    <ClInclude Include="include\Chunginator\Core\Event.h" />
+    <ClInclude Include="include\Chunginator\Core\EventHandler.h" />
     <ClInclude Include="include\Chunginator\Core\Input.h" />
     <ClInclude Include="include\Chunginator\Core\Layer.h" />
     <ClInclude Include="include\Chunginator\Core\Window.h" />
@@ -168,10 +168,10 @@
     <ClInclude Include="include\Chunginator\Renderer\OrthographicCamera.h" />
     <ClInclude Include="include\Chunginator\Renderer\PerspectiveCamera.h" />
     <ClInclude Include="include\Chunginator\Renderer\Renderer.h" />
-    <ClInclude Include="include\Chunginator\Renderer\Renderer2D.h" />
     <ClInclude Include="include\Chunginator\Renderer\Shader.h" />
     <ClInclude Include="include\Chunginator\Renderer\Texture.h" />
     <ClInclude Include="include\Chunginator\Renderer\VertexArray.h" />
+    <ClInclude Include="include\Chunginator\Renderer\Renderer2D.h" />
     <ClInclude Include="include\platform\ImGui\ImGuiLayer.h" />
     <ClInclude Include="include\platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="include\platform\OpenGL\OpenGLRenderer.h" />
@@ -179,14 +179,6 @@
     <ClInclude Include="include\platform\OpenGL\OpenGLTexture.h" />
     <ClInclude Include="include\platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="include\platform\OpenGL\OpenGLWindow.h" />
-    <ClInclude Include="vendor\IMGUI\include\IMGUI\imconfig.h" />
-    <ClInclude Include="vendor\IMGUI\include\IMGUI\imgui.h" />
-    <ClInclude Include="vendor\IMGUI\include\IMGUI\imgui_impl_glfw.h" />
-    <ClInclude Include="vendor\IMGUI\include\IMGUI\imgui_impl_opengl3.h" />
-    <ClInclude Include="vendor\IMGUI\include\IMGUI\imgui_internal.h" />
-    <ClInclude Include="vendor\IMGUI\include\IMGUI\imstb_rectpack.h" />
-    <ClInclude Include="vendor\IMGUI\include\IMGUI\imstb_textedit.h" />
-    <ClInclude Include="vendor\IMGUI\include\IMGUI\imstb_truetype.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Chunginator\Core\Application.cpp" />
@@ -198,10 +190,10 @@
     <ClCompile Include="src\Chunginator\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\Chunginator\Renderer\PerspectiveCamera.cpp" />
     <ClCompile Include="src\Chunginator\Renderer\Renderer.cpp" />
-    <ClCompile Include="src\Chunginator\Renderer\Renderer2D.cpp" />
     <ClCompile Include="src\Chunginator\Renderer\Shader.cpp" />
     <ClCompile Include="src\Chunginator\Renderer\Texture.cpp" />
     <ClCompile Include="src\Chunginator\Renderer\VertexArray.cpp" />
+    <ClCompile Include="src\Chunginator\Renderer\Renderer2D.cpp" />
     <ClCompile Include="src\platform\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\platform\OpenGL\OpenGLInput.cpp" />
@@ -216,6 +208,7 @@
     <ClCompile Include="vendor\IMGUI\include\IMGUI\imgui_draw.cpp" />
     <ClCompile Include="vendor\IMGUI\include\IMGUI\imgui_impl_glfw.cpp" />
     <ClCompile Include="vendor\IMGUI\include\IMGUI\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="vendor\IMGUI\include\IMGUI\imgui_tables.cpp" />
     <ClCompile Include="vendor\IMGUI\include\IMGUI\imgui_widgets.cpp" />
     <ClCompile Include="vendor\STB_IMAGE\include\STB_IMAGE\stb_image.cpp" />
   </ItemGroup>

@@ -7,6 +7,7 @@ namespace CGR
 	class GuiWidgets
 	{
 	public:
+		static bool Text(std::string text...);
 		static bool Button(std::string text, const Vec2f& size = Vec2f(0.0f, 0.0f));
 
 		static bool SliderFloat(std::string title, float* value, float min, float max);
@@ -16,5 +17,7 @@ namespace CGR
 
 		static bool ColorEdit3(std::string title, float color[3]);
 		static bool ColorEdit4(std::string title, float color[4]);
+
+		static float GetFramerate() { return ImGui::GetIO().Framerate; }
 	};
 }

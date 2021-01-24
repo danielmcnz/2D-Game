@@ -13,6 +13,12 @@ namespace CGR
 	void ImGuiLayer::Init()
 	{
 		ImGui::CreateContext();
+		ImGuiIO& io = ImGui::GetIO();
+
+		io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
+		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+		io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
+
 		ImGui::StyleColorsDark();
 
 		auto window = Application::Get().GetWindow().GetNativeWindow();
@@ -49,5 +55,9 @@ namespace CGR
 	#ifdef CGR_OPENGL
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 	#endif
+
+		ImGui::UpdatePlatformWindows();
+		ImGui::RenderPlatformWindowsDefault();
+		glfwMakeContextCurrent((GLFWwindow*)Application::Get().GetWindow().GetNativeWindow());
 	}
 }

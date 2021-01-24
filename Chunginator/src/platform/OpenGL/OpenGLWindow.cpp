@@ -36,9 +36,16 @@ namespace CGR
 			exit(1);
 		}
 
+		glEnable(GL_DEPTH_TEST);
+
 		glfwGetWindowPos(m_Window, &m_WindowPos.x, &m_WindowPos.y);
 
 		m_Renderer = Renderer::Create();
+
+		/*glfwSetScrollCallback(m_Window, [](GLFWwindow* window, double xOffset, double yOffset)
+		{
+			
+		});*/
 	}
 
 	OpenGLWindow::~OpenGLWindow()
@@ -49,7 +56,7 @@ namespace CGR
 
 	void OpenGLWindow::Clear()
 	{
-		glClear(GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	}
 
 	void OpenGLWindow::Shutdown()
@@ -61,6 +68,11 @@ namespace CGR
 	void OpenGLWindow::OnUpdate()
 	{
 		m_Renderer->SwapBuffers();
+	}
+
+	void OpenGLWindow::OnEvent()
+	{
+
 	}
 
 	void OpenGLWindow::SetClearColor(Vec4f clearColor)
@@ -120,6 +132,25 @@ namespace CGR
 		}
 	}
 
+	void OpenGLWindow::SetIcon(std::string iconPath)
+	{
+		stbi_set_flip_vertically_on_load(1);
+
+		int x, y, channels;
+		unsigned char* pixels = stbi_load(iconPath.c_str(), &x, &y, &channels, 4);
+
+		if (pixels == 0)
+		{
+			std::cout << "Failed to load icon" << std::endl;
+		}
+
+		GLFWimage icon = { x, y, pixels };
+
+		glfwSetWindowIcon(m_Window, 1, &icon);
+
+		stbi_image_free(pixels);
+	}
+
 	void OpenGLWindow::SetFullScreen()
 	{
 		if (m_State != WindowState::Fullscreen)
@@ -142,6 +173,21 @@ namespace CGR
 		}
 	}
 
+	void OpenGLWindow::SetWindowed(uint32_t x_Pos, uint32_t y_Pos, uint32_t width, uint32_t height)
+	{
+		if (m_State != WindowState::Windowed)
+		{
+			m_State = WindowState::Windowed;
+			GLFWmonitor* primaryMonitor = glfwGetPrimaryMonitor();
+			const GLFWvidmode* mode = glfwGetVideoMode(primaryMonitor);
+			m_WindowPos.x = x_Pos;
+			m_WindowPos.y = y_Pos;
+			m_WindowSize.x = width; 
+			m_WindowSize.y = height;
+			glfwSetWindowMonitor(m_Window, nullptr, m_WindowPos.x, m_WindowPos.y, m_WindowSize.x, m_WindowSize.y, mode->refreshRate);
+		}
+	}
+
 	void OpenGLWindow::SetWindowedBorderless()
 	{
 		if (m_State != WindowState::WindowedBorderless)
@@ -149,6 +195,23 @@ namespace CGR
 			m_State = WindowState::WindowedBorderless;
 			GLFWmonitor* primaryMonitor = glfwGetPrimaryMonitor();
 			const GLFWvidmode* mode = glfwGetVideoMode(primaryMonitor);
+			glfwSetWindowMonitor(m_Window, nullptr, 0, 0, mode->width, mode->height, mode->refreshRate);
+		}
+	}
+
+	void OpenGLWindow::SetWindowedFullscreen()
+	{
+		bool usable = false;
+		if (usable)
+		{
+			GLFWmonitor* primaryMonitor = glfwGetPrimaryMonitor();
+			const GLFWvidmode* mode = glfwGetVideoMode(primaryMonitor);
+
+			glfwWindowHint(GLFW_RED_BITS, mode->redBits);
+			glfwWindowHint(GLFW_GREEN_BITS, mode->greenBits);
+			glfwWindowHint(GLFW_BLUE_BITS, mode->blueBits);
+			glfwWindowHint(GLFW_REFRESH_RATE, mode->refreshRate);
+
 			glfwSetWindowMonitor(m_Window, nullptr, 0, 0, mode->width, mode->height, mode->refreshRate);
 		}
 	}

@@ -7,9 +7,11 @@ namespace CGR
 	Application::Application(int argc, char** argv)
 	{
 		s_Instance = this;
-		m_Window = Window::Create("Game", 1350, 750);
+		m_Window = Window::Create("Game", 1800, 750);
+		m_Window->SetIcon("assets/textures/icon.png");
+		m_Window->SetVsync(true);
+
 		m_GuiLayer = GuiLayer::Create();
-		m_Pcamera = new PerspectiveCamera();
 		m_Renderer = Renderer::Create();
 	}
 
@@ -60,7 +62,7 @@ namespace CGR
 		texture0->SetData(&texData);
 		texture0->Unbind();
 
-		Texture2D* texture1 = Texture2D::Create("assets/textures/test.jpg");
+		Texture2D* texture1 = Texture2D::Create("assets/textures/rawmap.png");
 		texture1->Bind();
 
 		int32_t samplers[32];
@@ -71,47 +73,63 @@ namespace CGR
 
 		shader->SetUniform1iv("u_Textures", 32, samplers);
 
-		float angle = 0.0f;
+		Vec3f angle = Vec3f(180.0f, 0.0f, 0.0f);
+
+		float time = (float)glfwGetTime();
+		float lastFrameTime = 0.0f;
 
 		while (m_Window->IsRunning())
 		{
 			m_Window->SetClearColor(Vec4f( 0.5f, 0.5f, 0.5f, 1.0f ));
 			m_Window->Clear();
 
+			time = (float)glfwGetTime();
+			float deltaTime = time - lastFrameTime;
+			lastFrameTime = time;
+
 			m_Renderer->SetViewPort();
 
 			m_GuiLayer->Begin();
 
-			m_Pcamera->OnGuiUpdate();
-			m_Pcamera->OnUpdate(1.0f);
+			m_Pcamera.OnGuiUpdate();
+			m_Pcamera.OnUpdate(deltaTime);
 
 			if (Input::KeyPressed(KeyCode::Escape))
 			{
 				m_Window->Shutdown();
 				break;
 			}
-			else if (Input::KeyPressed(KeyCode::One))
+			
+			if (Input::KeyPressed(KeyCode::F))
 			{
-				m_Window->SetFullScreen();
-			}
-			else if (Input::KeyPressed(KeyCode::Two))
-			{
-				m_Window->SetWindowed();
-			}
-			else if (Input::KeyPressed(KeyCode::Three))
-			{
-				m_Window->SetWindowedBorderless();
+				if (m_Window->IsFullScreen())
+				{
+					m_Window->SetWindowed();
+				}
+				else
+				{
+					m_Window->SetFullScreen();
+				}
 			}
 			
-			GuiWidgets::SliderFloat("angle", &angle, -180.0f, 180.0f);
+			GuiWidgets::SliderFloat3("angle", &angle.x, 0.0f, 360.0f);
 
-			glm::mat4 model = glm::rotate(glm::mat4(1.0f), glm::radians(angle), glm::vec3(1.0f, 0.0f, 0.0f));
+			auto aspratio = m_Window->GetWidth() / m_Window->GetHeight();
 
+			glm::mat4 model = glm::scale(glm::mat4(1.0f),
+				glm::vec3(texture1->GetWidth() / aspratio, texture1->GetHeight() / aspratio, 1.0f))
+				* glm::scale(glm::mat4(1.0f), glm::vec3(0.005, 0.005, 1.0f))
+				* glm::rotate(glm::mat4(1.0f), glm::radians(angle.x), glm::vec3(1.0f, 0.0f, 0.0f))
+				* glm::rotate(glm::mat4(1.0f), glm::radians(angle.y), glm::vec3(0.0f, 1.0f, 0.0f))
+				* glm::rotate(glm::mat4(1.0f), glm::radians(angle.z), glm::vec3(0.0f, 0.0f, 1.0f));
+			
 			shader->SetUniformMat4fv("u_Model", model);
-			shader->SetUniformMat4fv("u_View", m_Pcamera->GetView());
-			shader->SetUniformMat4fv("u_Projection", m_Pcamera->GetProjection());
+			shader->SetUniformMat4fv("u_View", m_Pcamera.GetView());
+			shader->SetUniformMat4fv("u_Projection", m_Pcamera.GetProjection());
 
-			m_Pcamera->OnRender();
+			GuiWidgets::Text("FPS: %.1f", GuiWidgets::GetFramerate());
+
+			m_Pcamera.OnRender();
 
 			m_Renderer->DrawIndexed(va);
 

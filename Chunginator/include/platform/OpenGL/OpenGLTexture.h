@@ -16,6 +16,9 @@ namespace CGR
 
 		void SetData(void* data) override;
 
+		int GetWidth() override { return m_Width; }
+		int GetHeight() override { return m_Height; }
+
 	private:
 		uint32_t m_TextureID;
 		unsigned char* m_Data;

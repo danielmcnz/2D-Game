@@ -31,6 +31,12 @@ namespace CGR
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 	}
 
+	void OpenGLVertexBuffer::SetData(void* data, uint32_t size)
+	{
+		glBindBuffer(GL_ARRAY_BUFFER, m_VertexBufferID);
+		glBufferSubData(GL_ARRAY_BUFFER, 0, size, data);
+	}
+
 	OpenGLIndexBuffer::OpenGLIndexBuffer(uint32_t* data, uint32_t count)
 		:
 		m_Count(count)

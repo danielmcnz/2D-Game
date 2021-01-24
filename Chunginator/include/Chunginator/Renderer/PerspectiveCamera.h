@@ -14,6 +14,7 @@ namespace CGR
 
 		void OnUpdate(float deltaTime) override;
 		void OnGuiUpdate() override;
+		void OnEvent() override;
 		void OnRender() override;
 
 		glm::mat4& GetView() { return m_View; }
@@ -26,7 +27,7 @@ namespace CGR
 
 		float m_NearPlane;
 		float m_FarPlane;
-		float m_FOV;
+		//float m_Fov;
 		float m_CameraSpeed;
 		float m_ZoomSpeed;
 		Vec3f m_CameraPos;

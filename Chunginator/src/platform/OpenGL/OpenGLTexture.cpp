@@ -32,7 +32,7 @@ namespace CGR
 		m_Data = stbi_load(texturePath.c_str(), &m_Width, &m_Height, &m_Channels, 0);
 		if (m_Data == 0)
 		{
-			std::cout << "Failed to load texture" << std::endl;
+			std::cout << "Failed to load texture " << texturePath << std::endl;
 		}
 
 		if (m_Channels == 4)

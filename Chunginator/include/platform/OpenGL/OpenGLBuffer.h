@@ -11,6 +11,8 @@ namespace CGR
 		OpenGLVertexBuffer(float* data, uint32_t size);
 		~OpenGLVertexBuffer() override;
 
+		void SetData(void* data, uint32_t size) override;
+
 		void SetLayout(BufferLayout bufferLayout) override { m_BufferLayout = bufferLayout; }
 		BufferLayout& GetLayout() override { return m_BufferLayout; }
 
