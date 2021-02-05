@@ -91,7 +91,6 @@ namespace CGR
 
 			m_GuiLayer->Begin();
 
-			m_Pcamera.OnGuiUpdate();
 			m_Pcamera.OnUpdate(deltaTime);
 
 			if (Input::KeyPressed(KeyCode::Escape))
@@ -111,9 +110,17 @@ namespace CGR
 					m_Window->SetFullScreen();
 				}
 			}
-			
-			GuiWidgets::SliderFloat3("angle", &angle.x, 0.0f, 360.0f);
 
+			//ImGui::DockSpaceOverViewport(ImGui::GetMainViewport());
+
+			m_GuiLayer->NewWindow("Controls");
+
+			m_Pcamera.OnGuiUpdate();
+			GuiWidgets::SliderFloat3("angle", &angle.x, 0.0f, 360.0f);
+			GuiWidgets::Text("FPS: %.1f", GuiWidgets::GetFramerate());
+
+			m_GuiLayer->EndWindow();
+			
 			auto aspratio = m_Window->GetWidth() / m_Window->GetHeight();
 
 			glm::mat4 model = glm::scale(glm::mat4(1.0f),
@@ -127,7 +134,6 @@ namespace CGR
 			shader->SetUniformMat4fv("u_View", m_Pcamera.GetView());
 			shader->SetUniformMat4fv("u_Projection", m_Pcamera.GetProjection());
 
-			GuiWidgets::Text("FPS: %.1f", GuiWidgets::GetFramerate());
 
 			m_Pcamera.OnRender();
 

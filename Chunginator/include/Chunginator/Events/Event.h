@@ -4,6 +4,11 @@
 
 namespace CGR
 {
+	enum class EventType
+	{
+
+	};
+
 	class Event
 	{
 	public:

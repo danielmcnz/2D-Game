@@ -11,9 +11,13 @@ namespace CGR
 		~ImGuiLayer() override;
 
 		void Init() override;
+		void Shutdown() override;
+
+		void NewWindow(std::string windowTitle, bool open = 0) override;
+		void EndWindow() override;
+
 		void Begin() override;
 		void End() override;
-		void Shutdown() override;
 
 	private:
 		Window* m_Window;

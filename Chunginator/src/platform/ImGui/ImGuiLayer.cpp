@@ -39,6 +39,16 @@ namespace CGR
 		ImGui::DestroyContext();
 	}
 
+	void ImGuiLayer::NewWindow(std::string windowTitle, bool open)
+	{
+		ImGui::Begin(windowTitle.c_str(), &open);
+	}
+
+	void ImGuiLayer::EndWindow()
+	{
+		ImGui::End();
+	}
+
 	void ImGuiLayer::Begin()
 	{
 	#ifdef CGR_OPENGL

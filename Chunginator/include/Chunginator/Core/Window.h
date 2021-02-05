@@ -2,7 +2,7 @@
 
 #include "Chunginator.h"
 #include "Renderer/Renderer.h"
-#include "Core/EventHandler.h"
+#include "Events/Event.h"
 
 namespace CGR
 {

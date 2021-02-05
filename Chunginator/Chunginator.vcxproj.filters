@@ -91,10 +91,13 @@
     <ClInclude Include="include\Chunginator\Core\Layer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Chunginator\Core\EventHandler.h">
+    <ClInclude Include="include\Chunginator\Renderer\Renderer2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Chunginator\Renderer\Renderer2D.h">
+    <ClInclude Include="include\Chunginator\Events\Event.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Chunginator\Events\MouseEvent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
